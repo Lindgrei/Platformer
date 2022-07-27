@@ -2,11 +2,12 @@ package main;
 
 public class Game implements Runnable {
     private final int FPS = 120;
-    int frames = 0;
-    long lastCheck = System.currentTimeMillis();
     private final GameWindow gameWindow;
     private final GamePanel gamePanel;
+    int frames = 0;
+    long lastCheck = System.currentTimeMillis();
     private Thread gameThread;
+    private final int UPS = 200;
 
     public Game() {
         System.out.println("init Game");
@@ -29,6 +30,9 @@ public class Game implements Runnable {
         double timePerTick = 1000000000.0 / FPS;
         long lastFrame = System.nanoTime();
         long now = System.nanoTime();
+
+        double timePerUpdate = 1000000000.0 / UPS;
+
 
 
         while (true) {
