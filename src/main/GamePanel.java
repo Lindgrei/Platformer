@@ -10,7 +10,7 @@ public class GamePanel extends JPanel {
     private long lastCheck =0;
     private int frames =0;
     private float xPos = 100, yPos = 100;
-    private float xDir= 0.01f, yDir = 0.01f;
+    private float xDir= 1f, yDir = 1f;
     private Color color;
 
     private final MouseInputs mouseInputs;
@@ -24,18 +24,17 @@ public class GamePanel extends JPanel {
 
     public void changeXPos(int val) {
         this.xPos += val;
-        repaint();
+
     }
 
     public void changeYPos(int val) {
         this.yPos += val;
-        repaint();
+
     }
 
     public void setRectPos(int x, int y) {
         this.xPos = x;
         this.yPos = y;
-        repaint();
     }
 
 
@@ -46,13 +45,6 @@ public class GamePanel extends JPanel {
         g.setColor(color);
 
         g.fillRect((int)xPos, (int)yPos, 200, 50);
-        frames++;
-        if(System.currentTimeMillis() - lastCheck >= 1000) {
-            System.out.println("FPS: " + frames);
-            frames = 0;
-            lastCheck = System.currentTimeMillis();
-        }
-        repaint();
 
     }
 
@@ -70,6 +62,8 @@ public class GamePanel extends JPanel {
         yPos+= yDir;
         if(yPos > 600 || yPos < 0) {
             yDir*=-1;
+            color = getRandomColor();
+
         }
 
     }
