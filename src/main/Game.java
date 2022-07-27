@@ -23,7 +23,7 @@ public class Game implements Runnable {
     }
 
     public void update() {
-        //gamePanel.updateGame();
+        gamePanel.updateGame();
     }
 
     @Override

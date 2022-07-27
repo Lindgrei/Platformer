@@ -93,6 +93,9 @@ public class GamePanel extends JPanel {
             playerAction = IDLE;
     }
 
+
+
+
     private void updatePos() {
         if (moving) {
             switch (playerDirection) {
@@ -113,12 +116,19 @@ public class GamePanel extends JPanel {
     }
 
 
-    public void paintComponent(java.awt.Graphics g) {
-        super.paintComponent(g);
+    public void updateGame(){
         updateAnimationTick();
         updatePos();
 
         setAnimation();
+
+    }
+
+
+
+    public void paintComponent(java.awt.Graphics g) {
+        super.paintComponent(g);
+
 
         g.drawImage(animations[playerAction][animIndex], (int) xPos, (int) yPos, 256, 160, null);
 
