@@ -1,14 +1,13 @@
 package main;
 
-public class Game implements Runnable{
-    int frames =0;
+public class Game implements Runnable {
+    private final int FPS = 120;
+    int frames = 0;
     long lastCheck = System.currentTimeMillis();
-    private GameWindow gameWindow;
-    private GamePanel gamePanel;
-
+    private final GameWindow gameWindow;
+    private final GamePanel gamePanel;
     private Thread gameThread;
 
-    private final int FPS = 120;
     public Game() {
         System.out.println("init Game");
         gamePanel = new GamePanel();
@@ -32,17 +31,15 @@ public class Game implements Runnable{
         long now = System.nanoTime();
 
 
-
-
-        while(true){
+        while (true) {
             now = System.nanoTime();
-        if(now - lastFrame >= timePerTick){
-            lastFrame = now;
-            gamePanel.repaint();
-            frames++;
+            if (now - lastFrame >= timePerTick) {
+                lastFrame = now;
+                gamePanel.repaint();
+                frames++;
 
-        }
-            if(System.currentTimeMillis() - lastCheck >= 1000) {
+            }
+            if (System.currentTimeMillis() - lastCheck >= 1000) {
                 System.out.println("FPS: " + frames);
                 frames = 0;
                 lastCheck = System.currentTimeMillis();
@@ -50,6 +47,6 @@ public class Game implements Runnable{
 
 
         }
-        }
     }
+}
 
