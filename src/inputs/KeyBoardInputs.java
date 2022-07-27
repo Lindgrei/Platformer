@@ -25,19 +25,15 @@ public class KeyBoardInputs implements KeyListener {
                 System.exit(0);
                 break;
             case KeyEvent.VK_W:
-                System.out.println("W");
                 gamePanel.changeYPos(-10);
                 break;
             case KeyEvent.VK_A:
-                System.out.println("A");
                 gamePanel.changeXPos(-10);
                 break;
             case KeyEvent.VK_S:
-                System.out.println("S");
                 gamePanel.changeYPos(10);
                 break;
             case KeyEvent.VK_D:
-                System.out.println("D");
                 gamePanel.changeXPos(10);
                 break;
         }
